@@ -5,7 +5,11 @@ const Hero = () => {
   return (
     <header className="w-full flex justify-center items-center flex-col">
       <nav className="py-6 w-full flex justify-between items-center">
-        <img src={logo} alt="summary_logo" className="w-52 object-contain" />
+        <img
+          src={logo}
+          alt="summary_logo"
+          className="w-44 sm:w-52 object-contain"
+        />
         <button
           type="button"
           onClick={() => window.open("https://github.com/Ismar-Becirspahic")}
