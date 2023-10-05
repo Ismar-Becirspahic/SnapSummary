@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { copy, linkIcon, loader, tick, round_search } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
+import FadeIn from "./FadeIn";
 
 const Demo = () => {
   const [article, setArticle] = useState({ url: "", summary: "" });
@@ -39,51 +40,53 @@ const Demo = () => {
 
   return (
     <section className="mt-16 w-full max-w-xl">
-      <div className="flex flex-col w-full gap-2">
-        <form
-          className="relative flex justify-center items-center"
-          onSubmit={handleSubmit}
-        >
-          <img
-            src={linkIcon}
-            alt="link_icon"
-            className="absolute left-0 my-2 ml-3 w-5"
-          />
-          <input
-            type="url"
-            placeholder="Enter a URL"
-            value={article.url}
-            onChange={(e) => {
-              setArticle({ ...article, url: e.target.value });
-            }}
-            required
-            className="url_input peer text-white text-bold placeholder:text-white trunckate"
-          />
-          <button type="submit" className="submit_btn">
-            <img src={round_search} alt="search_icon" />
-          </button>
-        </form>
-        <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
-          {articles.map((item, index) => (
-            <div
-              key={`link-${index}`}
-              onClick={() => setArticle(item)}
-              className="link_card"
-            >
-              <div className="copy_btn" onClick={() => handleCopy(item.url)}>
-                <img
-                  src={copied === item.url ? tick : copy}
-                  alt="copy icon"
-                  className="w-[40%] h-[40%] object-contain"
-                />
+      <FadeIn delay={0.2} direction="up" fullWidth padding>
+        <div className="flex flex-col w-full gap-2">
+          <form
+            className="relative flex justify-center items-center"
+            onSubmit={handleSubmit}
+          >
+            <img
+              src={linkIcon}
+              alt="link_icon"
+              className="absolute left-0 my-2 ml-3 w-5"
+            />
+            <input
+              type="url"
+              placeholder="Enter a URL"
+              value={article.url}
+              onChange={(e) => {
+                setArticle({ ...article, url: e.target.value });
+              }}
+              required
+              className="url_input peer text-white text-bold placeholder:text-white trunckate"
+            />
+            <button type="submit" className="submit_btn">
+              <img src={round_search} alt="search_icon" />
+            </button>
+          </form>
+          <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
+            {articles.map((item, index) => (
+              <div
+                key={`link-${index}`}
+                onClick={() => setArticle(item)}
+                className="link_card"
+              >
+                <div className="copy_btn" onClick={() => handleCopy(item.url)}>
+                  <img
+                    src={copied === item.url ? tick : copy}
+                    alt="copy icon"
+                    className="w-[40%] h-[40%] object-contain"
+                  />
+                </div>
+                <p className="flex-1 font-satoshi text-gray-600 text-sm font-medium truncate">
+                  {item.url}
+                </p>
               </div>
-              <p className="flex-1 font-satoshi text-gray-600 text-sm font-medium truncate">
-                {item.url}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </FadeIn>
       <div className="my-10 max-w-full flex justify-center items-center">
         {isFetching ? (
           <img src={loader} alt="loader" className="w-20 h-20 object-contain" />
@@ -98,13 +101,17 @@ const Demo = () => {
         ) : (
           article.summary && (
             <div className="flex flex-col gap-3">
-              <h2 className="font-satoshi font-bold text-gray-600 text-xl">
-                Article <span className="text_gradient">Summary</span>
-              </h2>
+              <FadeIn delay={0.2} direction="up" fullWidth padding>
+                <h2 className="font-satoshi font-bold text-gray-600 text-xl">
+                  Article <span className="text_gradient">Summary</span>
+                </h2>
+              </FadeIn>
               <div className="summary_box">
-                <p className="font-inter font-medium text-sm text-gray-700">
-                  {article.summary}
-                </p>
+                <FadeIn delay={0.4} direction="up" fullWidth padding>
+                  <p className="font-inter font-medium text-sm text-gray-700">
+                    {article.summary}
+                  </p>
+                </FadeIn>
               </div>
             </div>
           )
