@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+.git_btn {
+  @apply w-36 h-12 rounded-full text-base border-none relative overflow-hidden z-10 shadow-md
+  before:content-[''] before:w-0 before:h-12 before:rounded-full before:absolute before:top-0 before:left-0 before:bg-black before:transition-all before:duration-500 before:block before:z-[-1]
+  hover:before:w-36 hover:text-white hover:bg-clip-text
+}
+
+
+.head_text {
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl text-center;
+}
+
+.text_gradient {
+  @apply bg-gradient-to-r from-blue-500 via-purple-600 to-red-500 bg-clip-text text-transparent;
+}
+
+.description {
+  @apply mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl;
+}
+
+.url_input {
+  @apply block w-full rounded-full border bg-gradient-to-r from-blue-500 via-purple-600 to-red-500 py-2.5 pl-10 pr-12 text-sm shadow-lg font-satoshi font-bold focus:outline-none focus:ring-0;
+}
+
+.submit_btn {
+  @apply absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-10 items-center justify-center rounded-full font-sans text-sm font-medium text-white;
+}
+
+.link_card {
+  @apply p-3 flex justify-start items-center flex-row bg-white border border-gray-200 gap-3 rounded-full cursor-pointer;
+}
+
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.summary_box {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
+}
