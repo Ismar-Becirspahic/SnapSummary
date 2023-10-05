@@ -21,8 +21,8 @@ SnapSummary is a powerful tool designed to simplify your reading experience. If 
 
 1. Visit SnapSummary at: https://snapsummary.netlify.app/
 2. Paste the link or content of the article you want to summarize.
-3. Click the "Summarize" button.
-4. Instantly receive a concise summary of the article.
+3. Press enter.
+4. Wait for article summary!
 
 Start using SnapSummary today and enhance your reading experience!
 
